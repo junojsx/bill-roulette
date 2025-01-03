@@ -13,8 +13,21 @@
 </head>
 <body>
     <div id="app">
-        <h1>Hello World</h1>
-        <section class="container" id="names" v-if="data.state">test</section>
+        <div class="logo">
+            <h1>Bill Roulette!</h1>
+        </div>
+        <div class="inputContainer">
+            <label for="nameInput">Name:</label>
+            <input type="text" name="name" id="name" v-model.trim="data.inputName">
+            <button @click="addNameToList">Submit</button> <!-- @click, not @onclick -->
+        </div>
+        <section class="nameList">
+            <ul>
+                <li v-for="(name, index) in data.names" :key="name" class="animate__animated animate__fadeIn">
+                    {{ name }}
+                </li>
+            </ul>
+        </section>
         <section id="results" class="container" v-if="!data.state">test2</section>
     </div>
 </body>
