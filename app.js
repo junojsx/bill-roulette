@@ -15,16 +15,26 @@ createApp({
 
     //methods
 
+    //add name
     const addNameToList = () => {
       const userName= data.inputName;
       data.names.push(userName)
       return console.log(data.names)
     }
 
+    //remove name
+
+    const removeName = (index) => {
+      data.names.splice(index, 1)
+    }
+
+
+
     return {
       //this is where you import all datas and methods from the setup.
       data,
-      addNameToList
+      addNameToList,
+      removeName
     }
   }
 }).mount("#app");
