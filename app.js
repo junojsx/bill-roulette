@@ -6,7 +6,8 @@ const DEFAULT_STATE = {
   names: [],
   error: "",
   showError: false,
-  result:""
+  result:"",
+  removeLabel: "remove "
 }
 
 createApp({
@@ -19,7 +20,6 @@ createApp({
     const addNameToList = () => {
       const userName= data.inputName;
       data.names.push(userName)
-      return console.log(data.names)
     }
 
     //remove name
@@ -27,14 +27,16 @@ createApp({
     const removeName = (index) => {
       data.names.splice(index, 1)
     }
-
-
+    
+    // const btnLabel = `remove ${data.inputName}`
+    
 
     return {
       //this is where you import all datas and methods from the setup.
       data,
       addNameToList,
-      removeName
+      removeName,
+      // btnLabel, 
     }
   }
 }).mount("#app");

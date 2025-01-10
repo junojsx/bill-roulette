@@ -24,8 +24,9 @@
         <section class="nameList">
             <ul>
                 <li v-for="(name, index) in data.names" :key="name" class="animate__animated animate__fadeIn">
-                    <p>{{ name }}</p>
-                    <button aria-label="'remove' + {{name}}" @click="removeName(index)">x</button>
+                    <p >{{ name }}</p>
+                    <button :aria-describedby="name"  @click="removeName(index)">x</button>
+                    <p class="sr-only" v-bind:id="name">remove {{name}}</p>
                 </li>
             </ul>
         </section>
